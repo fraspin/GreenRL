@@ -1,0 +1,5 @@
+# Training Parameters for SOTA (CC23) Agent
+learningRate_sota: 0.001  # Learning rate for training
+gamma_val_sota: 0.60  # Gamma value for discounting
+exploration_initial_eps: 0.9999
+exploration_final_eps: 0.001
