@@ -103,15 +103,15 @@ python3 plotting/plot_bars.py
    * `3_nodes_experiment_standard_values_rho_r_07.yml`: `rho_r` set to 0.7.
    * `3_nodes_experiment_standard_values_rho_r_09.yml`: `rho_r` set to 0.9.
 
-5. **Teraflops & Wireless Rate Experiments**
-Tests system performance for a 7-node scenario under different MEC server capacities and varied wireless transmission rates.
+5. **Teraflops & Wireless Rate Experiments:**
+   Tests system performance for a 7-node scenario under different MEC server capacities and varied wireless transmission rates. *(Examples of available configurations below)*:
 
 | Configuration File | Server Capacity | Max Wireless Rate | Min Wireless Rate |
 | :--- |:----------------|:------------------|:--------|
 | `7_nodes_experiment_standard_values_TF_243_WIR_180.yml` | 243 TFLOPS      | 270 Mbps          | 90 Mbps |
 | `7_nodes_experiment_standard_values_TF_243_WIR_200.yml` | 243 TFLOPS      | 300 Mbps          | 100 Mbps |
 | `7_nodes_experiment_standard_values_TF_328_WIR_100.yml` | 328 TFLOPS      | 150 Mbps          | 50 Mbps |
-etc. 
+
 
 ## References
 - **[1]** Li Wu, Walid A. Hanafy, Abel Souza, Khai Nguyen, Jan Harkes, David Irwin, Mahadev Satyanarayanan, and Prashant Shenoy. 2025. CarbonEdge: Leveraging Mesoscale Spatial Carbon-Intensity Variations for Low Carbon Edge Computing. In Proceedings of the 34th International Symposium on High-Performance Parallel and Distributed Computing (HPDC '25). Association for Computing Machinery, New York, NY, USA, Article 12, 1–13. https://doi.org/10.1145/3731545.3731576
