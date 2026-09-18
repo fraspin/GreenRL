@@ -17,7 +17,7 @@ The main approaches evaluated are:
 ## Repository Structure
 - `/experiments_parameters/`: YAML configuration files containing simulation parameters for different scenarios (e.g., node counts, load ratios, wireless rates) or for the overall simulation.
 - `/plotting/`: Folder containing some files for plotting figures.
-- `/test_experiments/`: Folder containing the trained models.
+- `/test_experiments/`: Folder containing the trained models. Some trained models are present for reproducibility.
 - `auxiliarFunctions.py`: File containing helper functions
 - `main.py`: The main entry point to run simulations.
 - `Solver.py`: Exact/Heuristic Optimization Solver Wrapper based on SCIP, employing a Receding Horizon (Sliding Window) approach to solve job allocation, migration, and power dispatching optimization problems.
@@ -36,10 +36,12 @@ Ensure you have the following dependencies installed:
 - `python3` (>= 3.8)
 - `numpy`
 - `matplotlib`
-- `pyscipopt` (SCIP Optimization Suite for Python)
 - `stable-baselines3` (for GreenRL DRL models)
+- `pyscipopt` (SCIP Optimization Suite for Python)
 
-You can install all dependencies with:
+**Important Note for SCIP:** While `pyscipopt` is listed in the Python requirements, it requires the underlying SCIP Optimization Suite to be installed on your operating system first. Please refer to the [official SCIP installation guide](https://scipopt.org/index.php#download) before installing the Python package to avoid compilation errors.
+
+Once SCIP is installed on your system, you can install all Python dependencies with:
 
 ```bash
 pip install -r requirements.txt
@@ -52,22 +54,30 @@ To start the standard 7-node simulation, use the following command:
 ```bash
 python3 main.py ./experiments_parameters/configuration.yml ./experiments_parameters/7_nodes_experiment_standard_values.yml
 ```
-- `/experiments_parameters/configuration.yml`: This file contains all the configuration parameters to run experiments (e.g., which algorithms to train or evaluate, which objective function to use etc.)
 
-For instance, if you want to train and evaluate the GreenRL algorithm for the fairness function (P2), you should put:
+### Understanding Configuration Files
+The execution command relies on two main YAML files to define the simulation behavior:
+
+1. Simulation Control (configuration.yml): This file contains all the top-level configuration parameters to run experiments (e.g., which algorithms to train or evaluate, which objective function to use).
+For instance, to train and evaluate the GreenRL algorithm using the fairness function (P2), you would set:
+
 ```yaml
 GREENRL_TRAINING: 1
 POLICY_EVALUATION: 1
 REVCOST_F: 0
 ```
-When you train the DRL algorithms (GreenRL and sota [2]), their models will be saved in the respective folder. However, during the evaluation phase the final results will all be saved into the results_eval.pkl file (or results_solver.pkl for the solver) inside the model_policy folder.
 
+2. Scenario Parameters (e.g., 7_nodes_experiment_standard_values.yml): This file contains the specific data for running a certain scenario, such as the number of edge nodes, network parameters, job parameters, and the names of the trained models to load. 
+(Note: For the evaluation of trained algorithms like GreenRL and CC23, you must specify the exact names of the trained models you wish to use inside this file).
 
-- `/experiments_parameters/7_nodes_experiment_standard_values.yml`: This file typically contains the data for running a certain scenario (e.g., number of edge nodes, which trained model to use, network parameters, jobs parameters etc.)
+### Outputs & Plotting 
 
+When you train the DRL algorithms (GreenRL and CC23), their models will be saved in their respective directories. During the evaluation phase, the final results are compiled and saved into a results_eval.pkl file (or results_solver.pkl for the exact solver) inside the model_policy folder.
+To visualize these results, you can use the scripts provided in the /plotting/ folder. For example, to generate the bar plots comparing the algorithms, run:
 
-Remember that for the evaluation of trained algorithms (i.e., GreenRL and sota), you need to add the name of the trained models to use inside the yml file (e.g., in `7_nodes_experiment_standard_values.yml`). Below you can find a quick explanation of what scenarios the yaml files allow
-
+```bash
+python3 plotting/plot_bars.py
+```
 
 
 ### Experiment Parameter Files (`/experiments_parameters`)
@@ -104,8 +114,8 @@ Tests system performance for a 7-node scenario under different MEC server capaci
 etc. 
 
 ## References
-**[1]** Li Wu, Walid A. Hanafy, Abel Souza, Khai Nguyen, Jan Harkes, David Irwin, Mahadev Satyanarayanan, and Prashant Shenoy. 2025. CarbonEdge: Leveraging Mesoscale Spatial Carbon-Intensity Variations for Low Carbon Edge Computing. In Proceedings of the 34th International Symposium on High-Performance Parallel and Distributed Computing (HPDC '25). Association for Computing Machinery, New York, NY, USA, Article 12, 1–13. https://doi.org/10.1145/3731545.3731576
-**[2]** E. Karimi, Y. Chen, and B. Akbari, “Task offloading in vehicular edge computing networks via deep reinforcement learning,” Comput. Commun., vol. 189, pp. 193–204, 2022
+- **[1]** Li Wu, Walid A. Hanafy, Abel Souza, Khai Nguyen, Jan Harkes, David Irwin, Mahadev Satyanarayanan, and Prashant Shenoy. 2025. CarbonEdge: Leveraging Mesoscale Spatial Carbon-Intensity Variations for Low Carbon Edge Computing. In Proceedings of the 34th International Symposium on High-Performance Parallel and Distributed Computing (HPDC '25). Association for Computing Machinery, New York, NY, USA, Article 12, 1–13. https://doi.org/10.1145/3731545.3731576
+- **[2]** E. Karimi, Y. Chen, and B. Akbari, “Task offloading in vehicular edge computing networks via deep reinforcement learning,” Comput. Commun., vol. 189, pp. 193–204, 2022
 
 
 ## Citation

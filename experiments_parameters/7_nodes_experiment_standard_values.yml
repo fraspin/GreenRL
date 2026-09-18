@@ -43,7 +43,7 @@ COST_FACTOR: 15 # Normalized factor of cost per unit of power
 
 ### Training parameters
 training_window_size: 10 # window size to evaluate reward during training
-NUM_TOT_timesteps: 18000 #18000000 # TRAINING STEPS
+NUM_TOT_timesteps: 18000000 #18000000 # TRAINING STEPS
 MAX_STEPS_EPISODE: 1024
 
 ### Evaluation parameters

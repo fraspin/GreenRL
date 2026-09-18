@@ -20,7 +20,6 @@ from stable_baselines3.common.env_util import make_vec_env
 from auxiliarFunctions import *
 from environ import WorldEnv
 from environ_sota import WorldEnvStateOfTheArt
-from plotting.Plots import *
 from evaluation_algorithms  import evaluate_algorithm
 from evaluation_sota import evaluate_sota
 from Solver import Solver
@@ -345,9 +344,6 @@ def trainAgent(exp_dir, experiment_dir_cont, dir_last_experiment_name, lastAndBe
     os.makedirs(figure_directory, exist_ok=True)
     os.makedirs(os.path.join(figure_directory, 'bar_plots'), exist_ok=True)
 
-    plot_training_reward(experiment_dir, doPlots, isGreenRL)
-    plot_mean_reward(    experiment_dir, doPlots, isGreenRL)
-    plot_length_episode( experiment_dir, doPlots, isGreenRL)    
 
 # Dictionary dictating which components to evaluate
 EVALUATION_SETUP = {"POLICY":     POLICY_EVALUATION,

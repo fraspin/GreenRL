@@ -389,6 +389,12 @@ def plot_jobs_accepted_rejected_all(dict_values1, dict_values2,
                  color = color_vect[1], hatch = ['/', None, None, None, None, None, None,'/', None], edgecolor = 'white')
     p5 = plt.bar(y_pos, j_rejected,  bottom=bottom_rejectedOK,  linewidth=0,
                  color = color_vect[2], hatch = ['/', None, None, None, None, None, None,'/', None], edgecolor = 'white')
+
+
+
+
+
+
     plt.legend((p5[0], p4[0], p2[0], p1[0]), ('Non-offloaded jobs', 'Forcedly rejected jobs', 'Interrupted jobs',  ' Accepted jobs'), fontsize=17)
     plt.ylabel(ylabel)
     plt.xticks(y_pos, legend_alg_b)
