@@ -1,0 +1,71 @@
+### Trained models files - put here the trained model you want to evaluate
+EXP_GREENRL: ''
+EXP_SOTA: ''
+
+### Scenario parameters
+N_SERVERS: 7 # Number of servers
+SCENARIO_KM_SIDE: 50
+MAX_COMPUTATION_SERVER_NORMALIZED: 10 # Normalized processing cycles per node per time slot
+MAX_POWER_SERVER_NORMALIZED: 10 # Normalized power capacity per node per time slot
+MAX_STORAGE_SERVER: 10000000000  # TeraBytes
+TERAFLOPS_SERVER: 410
+MAX_USERSxNODE: 5 # maximum number of users/jobs per server
+MIGRATION_DUR_TS: 1 # duration of migration (in TS)
+FPS_DEADLINE_DELAY: 33 # ms - maximum delay that can be tolerated
+SWITCHING_DELAY: 0 # ms -- delay due to switching in the network
+
+### Jobs parameters
+ARRIVAL_RATE: 2.33 # Number of  arriving jobs per time slot
+JOB_SESSION_LENGTH: 12 #  Jobs duration in time slots
+JOB_STORAGE_NEED: 3000000 # MegaBytes
+JOB_CYCLES_NORMALIZED: 2 # Normalized processing cycles per job per time slot
+FRAME_SIZE: 768000  # bits
+JOB_TERAFLOPS: 0.44
+
+### Network parameters
+MAX_DATARATE: 210000000 # bps -- maximum data rate for a user
+MIN_DATARATE: 70000000 # bps  -- minimum data rate for a user
+FIBER_DATARATE: 200000000
+
+# Power-computation model parameters
+alpha: 0.9
+beta: 0.1
+gamma: 0.1
+
+# Proportional-fairness-type objective function weights
+rho_d: 0.2
+rho_p: 0.95
+rho_r: 0.4
+
+# Economic parameters
+REVENUE_FACTOR: 10 # Normalized factor of revenue per job
+COST_FACTOR: 15 # Normalized factor of cost per unit of power
+
+### Training parameters
+training_window_size: 10 # window size to evaluate reward during training
+NUM_TOT_timesteps: 18000000 # TRAINING STEPS
+MAX_STEPS_EPISODE: 1024
+
+### Evaluation parameters
+tot_time_evaluation: 540 # length of the evaluation phase (in time slots
+n_real_eval: 25 # Number of experiments (to gather confidence intervals)
+evaluating_window_size: 10 # window size to evaluate performance during evaluation
+
+ACTION_DETERMINISTIC: 1     # 1 = deterministic action, 0 if not
+TRANSIENT_PERCT_EVAL: 0.0   # starting portion of evalaution time that is not considered for results
+NOLOG_FAIRNESS: 0           # 1 = fairness objective without log. 0 if log
+
+## needed for carbonedge
+POWER_SCALE: 0.1            # Adjust based on power units
+TS_H: 0.0166667             # Duration of time slot in hours  (1/60 = 1 minute timeslots)
+MAX_CARBON_INTENSITY: 372        # gCO2/kWh for 0 green power. Possible value = 319 # gCO2e / KWh (Europe)
+MIN_CARBON_INTENSITY: 20         # gCO2/kWh for max green power
+
+## Optimization solver parameters
+time_opt_solver     : 2        # window for which the solver runs the optimization
+talkative           : 0        # More printing during optimization
+time4solver         : 20       # Max. time for each opt. iteration to finish
+numMaxIter          : 5        # Max. number of iterations of optimization
+gapPostDeadline     : 0.05     # % Gap w.r.t. optimal for next interation stop
+gapIncremStop       : 0        # keep it 0 for now. It can give bad gap solutions
+max_extension_solver: 0        # Maximum number of time slot extensions

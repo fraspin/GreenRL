@@ -1,0 +1,22 @@
+training_parameters:
+  learningRate: 0.0007 # Learning rate for training
+  N_epochs: 20 # Number of epochs during training
+  N_STEPS_model: 8 # Number of steps before updating policy
+  bacthSize: 16 # Batch size for training
+  NUM_TOT_timesteps: 50000 # Total number of steps for training
+  MAX_STEPS_EPISODE: 1024 # Maximum number of time steps for each episode
+  freq_check_bestTrain: 2000 # Frequency of checks for best training
+  freq_eval_callBack: 100000 # Frequency of evaluation callbacks
+  max_eval_episodes: 10 # Maximum number of evaluation episodes
+  gae_lambda_val: 0.9 # Lambda value for GAE
+  gamma_val: 0.99 # Gamma value for discounting
+  clip_range_val: 0.2 # Clipping range value
+  clip_range_vf: 0.2 # Clipping range for value function
+  ent_coef: 0.01 # Entropy coefficient
+  big_penalty: null
+
+policy_kwargs:
+  log_std_init: -2 # Initial log standard deviation
+  ortho_init: False # Orthogonal initialization
+
+N_parallelEnvs: 16

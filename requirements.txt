@@ -1,0 +1,11 @@
+gymnasium==0.29.1
+matplotlib==3.11.1
+numpy==2.5.2
+pandas==3.0.5
+PySCIPOpt==5.1.1
+PyYAML==6.0.3
+scikit_learn==1.9.0
+scipy==1.18.1
+seaborn==0.13.2
+stable_baselines3==2.4.0a6
+tqdm==4.66.5

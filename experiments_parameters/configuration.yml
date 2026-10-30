@@ -1,0 +1,20 @@
+# configuration.yaml
+# ============================================================================
+# SIMULATION STAGE FLAGS
+# Toggle these flags (1 to enable, 0 to disable) to choose which parts
+# of the pipeline to run.
+# ============================================================================
+GREENRL_TRAINING: 0
+SOTA_TRAINING: 0
+POLICY_EVALUATION: 0
+SOTA_EVALUATION: 0
+BASELINES_EVALUATION: 0
+SOLVER_EVALUATION: 0
+CARBONEDGE_EVALUATION: 1
+
+# ============================================================================
+# GLOBAL SETTINGS
+# ============================================================================
+REVCOST_F: 1 # 0 represents the Fairness objective function (P2), while 1 is the profit (P1)
+CONTINUAL_LEARNING: 0
+PRINT_FIGURES: 0
