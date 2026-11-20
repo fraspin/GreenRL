@@ -121,13 +121,17 @@ python3 plotting/plot_bars.py
 ## Citation
 If you find this code useful in your research, please consider citing our paper:
 ```bibtex
-@article{spinelli2026greenedge,
-  title={Green Edge Computing for Latency-Sensitive Applications under Intermittent Renewable Energy},
+@ARTICLE{Spinelli2026,
   author={Spinelli, Francesco and Bazco-Nogueras, Antonio and Mancuso, Vincenzo},
-  journal={IEEE Open Journal of the Communications Society},
+  journal={IEEE Open Journal of the Communications Society}, 
+  title={Green Edge Computing for Latency-Sensitive Applications Under Intermittent Renewable Energy}, 
   year={2026},
-  publisher={IEEE}
-}
+  volume={7},
+  number={},
+  pages={14908-14927},
+  keywords={Renewable energy sources;Energy;Modeling;Algorithms;Renewable energy;Timing;Augmented reality;Carbon footprint;Green energy;Joining processes;Carbon footprint;deep reinforcement learning;edge computing;green computing;green energy;mobile augmented reality},
+  doi={10.1109/OJCOMS.2026.3750694}}
+
 ```
 
 
